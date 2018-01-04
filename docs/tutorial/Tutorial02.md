@@ -47,8 +47,8 @@ further modified.
             textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
             textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
 
-`putString(..)` exists in a couple of different flavors but it generally works by taking a string and
-outputting it somewhere in terminal window. Notice that it doesn't take the current position of the text
+`putString()` exists in a couple of different flavors but it generally works by taking a string and
+outputting it somewhere in terminal window. Notice that it takes an absolute position of the text
 cursor when doing this.
 
             textGraphics.putString(2, 1, "Lanterna Tutorial 2 - Press ESC to exit", SGR.BOLD);
@@ -64,7 +64,7 @@ You still need to flush for changes to become visible
 You can attach a resize listener to your `Terminal` object, which will invoke a callback method (usually on a
 separate thread) when it is informed of the terminal emulator window changing size. Notice that maybe not
 all implementations supports this. The `UnixTerminal`, for example, relies on the `WINCH` signal being sent to
-the java process, which might not make it though if you remote shell isn't forwarding the signal properly.
+the java process, which might not make it though if your remote shell isn't forwarding the signal properly.
 
             terminal.addResizeListener(new TerminalResizeListener() {
                 @Override
